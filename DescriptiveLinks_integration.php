@@ -25,6 +25,7 @@ if (!defined('SMF'))
 function dlinks_integrate_admin_areas(&$admin_areas)
 {
 	global $txt;
+
 	$admin_areas['config']['areas']['modsettings']['subsections']['dlinks'] = array($txt['mods_cat_modifications_dlinks']);
 }
 
@@ -32,7 +33,6 @@ function dlinks_integrate_admin_areas(&$admin_areas)
  * dlinks_integrate_modify_modifications()
  *
  * @param mixed $sub_actions
- * @return
  */
 function dlinks_integrate_modify_modifications(&$sub_actions)
 {
@@ -50,7 +50,6 @@ function dlinks_integrate_modify_modifications(&$sub_actions)
  * @param mixed $leftPermissionGroups
  * @param mixed $hiddenPermissions
  * @param mixed $relabelPermissions
- * @return
  */
 function dlinks_integrate_load_permissions(&$permissionGroups, &$permissionList, &$leftPermissionGroups, &$hiddenPermissions, &$relabelPermissions)
 {
@@ -65,7 +64,7 @@ function dlinks_integrate_load_permissions(&$permissionGroups, &$permissionList,
  */
 function ModifydlinksSettings($return_config = false)
 {
-	global $txt, $scripturl, $context, $smcFunc, $sourcedir;
+	global $txt, $scripturl, $context;
 
 	$context[$context['admin_menu_name']]['tab_data']['tabs']['dlinks']['description'] = $txt['descriptivelinks_desc'];
 	$config_vars = array(

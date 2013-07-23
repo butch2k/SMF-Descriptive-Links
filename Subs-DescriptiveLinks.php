@@ -199,7 +199,7 @@ function Add_title_to_link(&$message, $id_msg = -1)
  */
 function Load_topic_subject($url)
 {
-	global $smcFunc, $scripturl, $txt, $context, $modSettings, $user_info;
+	global $smcFunc, $scripturl, $txt, $context, $modSettings;
 
 	// lets pull out the topic number and possibly a message number for this link
 	//
@@ -228,14 +228,13 @@ function Load_topic_subject($url)
 		// off to the database we go, convert this link to the message title, check for any hackyness as well, such as
 		// the message is on a board they can see, not in the recycle bin, is approved, etc, so we show only what they can see.
 		$request = $smcFunc['db_query']('', '
-			SELECT
-				m.subject
+			SELECT m.subject
 			FROM {db_prefix}topics AS t
 				INNER JOIN {db_prefix}messages AS m ON (m.id_msg = ' . (($match[2] != '') ? '{int:message_id}' : 't.id_first_msg') . ')
 				LEFT JOIN {db_prefix}boards AS b ON (t.id_board = b.id_board)
 			WHERE t.id_topic = {int:topic_id} && {query_wanna_see_board}' . (!empty($modSettings['recycle_enable']) && $modSettings['recycle_board'] > 0 ? '
-			AND b.id_board != {int:recycle_board}' : '') . '
-			AND m.approved = {int:is_approved}
+				AND b.id_board != {int:recycle_board}' : '') . '
+				AND m.approved = {int:is_approved}
 			LIMIT 1',
 			array(
 				'topic_id' => $match[1],
@@ -261,11 +260,10 @@ function Load_topic_subject($url)
 	{
 		// found a board number .... lets get the board name
 		$request = $smcFunc['db_query']('', '
-			SELECT
-				b.name
+			SELECT b.name
 			FROM {db_prefix}boards as b
 			WHERE b.id_board = {int:board_id} AND {query_wanna_see_board}' . (!empty($modSettings['recycle_enable']) && $modSettings['recycle_board'] > 0 ? '
-			AND b.id_board != {int:recycle_board}' : '') . '
+				AND b.id_board != {int:recycle_board}' : '') . '
 			LIMIT 1',
 			array(
 				'board_id' => $match[1],

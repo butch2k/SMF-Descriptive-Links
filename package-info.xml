@@ -3,9 +3,18 @@
 <package-info xmlns="http://www.simplemachines.org/xml/package-info" xmlns:smf="http://www.simplemachines.org/">
 	<id>Spuds:DescriptiveLinks</id>
 	<name>Descriptive Links</name>
-	<version>1.0</version>
+	<version>1.2</version>
 	<type>modification</type>
-
+	<license><![CDATA[
+/**
+ * Descriptive Links
+ *
+ * @author spuds
+ * @license MPL 1.1 http://mozilla.org/MPL/1.1/
+ *
+ * @version 1.0
+ */
+]]></license>
 	<install for="2.0 - 2.0.99">
 		<database>add_settings.php</database>
 		<readme type="file" parsebbc="true">readme.txt</readme>
@@ -17,7 +26,7 @@
 		<modification>language-utf8.xml</modification>
 		<redirect url="?action=admin;area=modsettings;sa=dlinks" timeout="6000">redirect.txt</redirect>
 	</install>
-	
+
 	<uninstall for="2.0 - 2.0.99">
 		<readme type="file" parsebbc="true">readme-uninstall.txt</readme>
 		<code>add_remove_hooks.php</code>

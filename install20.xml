@@ -1,15 +1,17 @@
 <?xml version="1.0"?>
 <!DOCTYPE modification SYSTEM "http://www.simplemachines.org/xml/modification">
-<!-- --------------------------------------------------------------------------
+<!--
+================================================================================
   Package "Descriptive Links" Mod for Simple Machines Forum (SMF) V2.0
   Author Spuds
   License This Source Code is subject to the terms of the Mozilla Public License
    - version 1.1 (the "License"). You can obtain a copy of the License at
    - http://mozilla.org/MPL/1.1/.
---------------------------------------------------------------------------- -->
+================================================================================
+-->
 <modification xmlns="http://www.simplemachines.org/xml/modification" xmlns:smf="http://www.simplemachines.org/">
 	<id>Spuds:DescriptiveLinks</id>
-	<version>1.1</version>
+	<version>1.2</version>
 
 	<file name="$sourcedir/Subs-Post.php">
 		<operation>
